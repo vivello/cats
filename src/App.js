@@ -17,11 +17,18 @@ class App extends Component {
     })  
   }
 
+  lose = () => {
+    console.log('u lose!')
+      this.setState({
+        points: 0
+      })
+  }
+
   render () {
     return (
       <div className="App">
         <div id="points-counter">{this.state.points}</div>
-        <Cat scorePoints={this.scorePoints} />
+        <Cat scorePoints={this.scorePoints} lose={this.lose} />
         Illustrations by <a href="https://icons8.com/illustrations/author/eEbrZFlkyZbD">Anna A</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
       </div>
       

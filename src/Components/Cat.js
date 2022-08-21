@@ -17,9 +17,24 @@ class Cat extends Component {
       }
     };
 
+    checkForLoss = () => {
+        let random = Math.random() * 10
+        if (random < 5) {
+            this.props.lose() 
+            return true;
+        }
+        return false;
+    }
+
     handleMouseEnter = () => {
         let scoreIntervalId = setInterval(() => {
-            this.props.scorePoints()
+            let isLoss = this.checkForLoss()
+            if (isLoss === true) {
+                clearInterval(this.state.scoreIntervalId)
+                return;
+            } else {
+                this.props.scorePoints()
+            }
         }, 500);
         this.setState({ scoreIntervalId: scoreIntervalId })
     }
@@ -28,7 +43,8 @@ class Cat extends Component {
         clearInterval(this.state.scoreIntervalId)
     }
     
-  
+
+    
     render() {
       return (
         <div>
