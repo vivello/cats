@@ -18,8 +18,8 @@ class Cat extends Component {
     };
 
     checkForLoss = () => {
-        let random = Math.random() * 10
-        if (random < 5) {
+        let random = Math.random() * 40
+        if (random < 2) {
             this.props.lose() 
             return true;
         }
