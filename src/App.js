@@ -11,8 +11,7 @@ class App extends Component {
     };
   }
 
-  scorePoints = (e) => {
-    e.preventDefault()
+  scorePoints = () => {
     this.setState((prevState) => {
       return { points: prevState.points + 30}
     })  
@@ -22,7 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <div id="points-counter">{this.state.points}</div>
-        <Cat />
+        <Cat scorePoints={this.scorePoints} />
         Illustrations by <a href="https://icons8.com/illustrations/author/eEbrZFlkyZbD">Anna A</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
       </div>
       

@@ -17,13 +17,22 @@ class Cat extends Component {
       }
     };
 
-    
+    handleMouseEnter = () => {
+        setInterval(() => {
+            this.props.scorePoints()
+        }, 500);
+    }
+
+    handleMouseLeave = () => {
+
+    }
     
   
     render() {
       return (
         <div>
             <img src={this.loadSprite()} alt={`cat sprite, whose mood is now ${this.state.mood}`}></img>
+            <button onClick={this.handleMouseEnter}></button>
         </div>
       );
     }
